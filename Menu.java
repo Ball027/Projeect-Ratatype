@@ -59,4 +59,20 @@ public class Menu implements ActionListener{
         }
     }
 
+    public JButton getStart() {
+        return start;
+    }
+
+    public void setStart(JButton start) {
+        this.start = start;
+    }
+
+    public JButton getRule() {
+        return rule;
+    }
+
+    public void setRule(JButton rule) {
+        this.rule = rule;
+    }
+
 }

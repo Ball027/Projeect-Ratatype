@@ -28,19 +28,21 @@ public class Frame extends JFrame implements ActionListener, KeyListener
 	final int SCREEN_HEIGHT;
 	final int DELAY=100; 
 	
+        JFrame frame;
 	JButton button; 
 	Timer timer;
-	JLabel label; 
+	JLabel label;
 	
 	public Frame()
 	{
-		this.setLayout(new BorderLayout());
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+                frame = new JFrame("");
+		frame.setLayout(new BorderLayout());
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		SCREEN_WIDTH=720;
 		SCREEN_HEIGHT=400;
-		this.setSize(SCREEN_WIDTH,SCREEN_HEIGHT);
-		this.setVisible(true); 
-		this.setLocationRelativeTo(null); 
+		frame.setSize(SCREEN_WIDTH,SCREEN_HEIGHT);
+		frame.setVisible(false);
+		frame.setLocationRelativeTo(null); 
 		
 		button=new JButton("Start");
 		button.setFont(new Font("MV Boli",Font.BOLD,30));
@@ -57,14 +59,14 @@ public class Frame extends JFrame implements ActionListener, KeyListener
 		label.setHorizontalAlignment(JLabel.CENTER); 
 		label.setBackground(Color.lightGray);
 		
-		this.add(button, BorderLayout.SOUTH);
-		this.add(label, BorderLayout.NORTH);
-		this.getContentPane().setBackground(Color.WHITE);
-		this.addKeyListener(this);
-		this.setFocusable(true); 
-		this.setResizable(false);
-		this.setTitle("Typing Test");
-		this.revalidate(); 
+		frame.add(button, BorderLayout.SOUTH);
+		frame.add(label, BorderLayout.NORTH);
+		frame.getContentPane().setBackground(Color.WHITE);
+		frame.addKeyListener(this);
+		frame.setFocusable(true); 
+		frame.setResizable(false);
+		frame.setTitle("Typing Test");
+		frame.revalidate(); 
 	}
 
 	@Override
@@ -241,5 +243,19 @@ public class Frame extends JFrame implements ActionListener, KeyListener
 			toReturn=toReturn+"."; //Adding a full stop at the last instead of a space
 		}
 		return(toReturn); 
+	}
+
+    public JFrame getFrame() {
+        return frame;
+    }
+
+    public void setFrame(JFrame frame) {
+        this.frame = frame;
+    }
+        
+        
+    	public static void main(String args[])
+	{
+		new Frame(); 
 	}
 }
